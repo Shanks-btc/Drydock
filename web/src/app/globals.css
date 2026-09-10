@@ -1,0 +1,88 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: #0a0a0f;
+  color: #f2f3f5;
+}
+
+/* Hero texture — faint dot grid, from the landing mockup. */
+.dot-grid {
+  background-image: radial-gradient(rgba(255, 255, 255, 0.06) 1px, transparent 1px);
+  background-size: 28px 28px;
+}
+
+/* Pulse that travels down the pipeline diagram — each stage brightens in
+   sequence on a shared loop. Callers stagger with POSITIVE animation-delay
+   values in strict order + animation-fill-mode both (negative delays scramble
+   the visible order given the short bright window). */
+@keyframes pipeline-travel {
+  0% {
+    opacity: 0.25;
+    filter: drop-shadow(0 0 0 rgba(45, 212, 191, 0));
+  }
+  6% {
+    opacity: 1;
+    filter: drop-shadow(0 0 6px rgba(45, 212, 191, 0.85));
+  }
+  16% {
+    opacity: 0.25;
+    filter: drop-shadow(0 0 0 rgba(45, 212, 191, 0));
+  }
+  100% {
+    opacity: 0.25;
+    filter: drop-shadow(0 0 0 rgba(45, 212, 191, 0));
+  }
+}
+.pipeline-pulse {
+  animation: pipeline-travel 4s ease-in-out infinite both;
+}
+
+/* Indeterminate progress bar — a segment sweeping left→right, for the
+   client-side zip step where fflate gives no per-chunk progress. */
+@keyframes indeterminate-sweep {
+  0% {
+    transform: translateX(-120%);
+  }
+  100% {
+    transform: translateX(420%);
+  }
+}
+.animate-indeterminate {
+  animation: indeterminate-sweep 1.15s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+}
+
+/* "This is live" dot — a calm expanding ring (slower than Tailwind's ping). */
+@keyframes ping-slow {
+  0% {
+    transform: scale(1);
+    opacity: 0.7;
+  }
+  75%,
+  100% {
+    transform: scale(2.2);
+    opacity: 0;
+  }
+}
+.animate-ping-slow {
+  animation: ping-slow 2.2s cubic-bezier(0, 0, 0.2, 1) infinite;
+}
+
+/* Accessibility: collapse every animation/transition to instant for users
+   who ask for reduced motion — a blanket safety net in addition to the
+   component-level checks in Reveal / DemoTerminal. */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

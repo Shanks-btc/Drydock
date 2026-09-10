@@ -1,0 +1,149 @@
+{
+  "stamp": "2026-09-07T13-47-53",
+  "buyer": "0xaFD8730A20E57F1FEfD4b7BC680DB89bAA4d95A8",
+  "payTo": "0x4Aa7691dcFb903B377A7c2be69a7202fEF79E8AF",
+  "settlementTxs": [
+    {
+      "flow": "A (forced retry -> clean -> live)",
+      "tx": "0x0d57780bb4b8416d4f1c9342f30e52f725adc3443f1e122994a712268d828104"
+    },
+    {
+      "flow": "C (blocked -> halted)",
+      "tx": "0x94cda3fc2ce67d490c74163bea2c65ddf98d8207e814a5927625c1639e94b17d"
+    }
+  ],
+  "timings": {
+    "A": {
+      "appeared": true,
+      "scanVisibleMs": 11414,
+      "stillScanningAt4_5s": true,
+      "midElapsedText": "4.8s elapsed",
+      "resultTiming": "memory check + poll: 11.3s on screen"
+    },
+    "C": {
+      "appeared": true,
+      "scanVisibleMs": 13371,
+      "stillScanningAt4_5s": true,
+      "midElapsedText": "4.8s elapsed",
+      "resultTiming": "memory check + poll: 13.3s on screen"
+    }
+  },
+  "results": [
+    {
+      "name": "A: facilitator soft-fail surfaced as a retry (not an error)",
+      "pass": true,
+      "detail": "1 retry(ies)"
+    },
+    {
+      "name": "A: payment settled, flow moved to the scan step",
+      "pass": true,
+      "detail": "scanning"
+    },
+    {
+      "name": "A: retry-state screenshot captured",
+      "pass": true
+    },
+    {
+      "name": "A: ScanPanel actually rendered (not skipped)",
+      "pass": true
+    },
+    {
+      "name": "A: scan step visible for a meaningful duration (>= 4s, not a flash)",
+      "pass": true,
+      "detail": "11.4s on screen"
+    },
+    {
+      "name": "A: scan still running at the 4.5s mark",
+      "pass": true,
+      "detail": "4.8s elapsed"
+    },
+    {
+      "name": "A: a real live URL is shown",
+      "pass": true,
+      "detail": "http://localhost:3010/s/1f981647-4605-43d3-8cea-8dbe9ddca853/"
+    },
+    {
+      "name": "A: the live URL actually serves the deployed site",
+      "pass": true,
+      "detail": "HTTP 200"
+    },
+    {
+      "name": "A: settlement tx on-chain",
+      "pass": true,
+      "detail": "0x0d57780bb4b8416d4f1c9342f30e52f725adc3443f1e122994a712268d828104"
+    },
+    {
+      "name": "A: tx status success",
+      "pass": true,
+      "detail": "success"
+    },
+    {
+      "name": "A: tx target is USDC",
+      "pass": true,
+      "detail": "0x036cbd53842c5426634e7929541ec2318f3dcf7e"
+    },
+    {
+      "name": "A: USDC Transfer buyer->seller 0.01",
+      "pass": true
+    },
+    {
+      "name": "C: payment settled, flow moved to the scan step",
+      "pass": true,
+      "detail": "scanning"
+    },
+    {
+      "name": "C: ScanPanel actually rendered (not skipped)",
+      "pass": true
+    },
+    {
+      "name": "C: scan step visible for a meaningful duration (>= 4s, not a flash)",
+      "pass": true,
+      "detail": "13.4s on screen"
+    },
+    {
+      "name": "C: scan still running at the 4.5s mark",
+      "pass": true,
+      "detail": "4.8s elapsed"
+    },
+    {
+      "name": "C: matched pattern shown as exposed-key-in-build-output",
+      "pass": true
+    },
+    {
+      "name": "C: a confidence score is shown",
+      "pass": true
+    },
+    {
+      "name": "C: a written rationale is shown",
+      "pass": true
+    },
+    {
+      "name": "C: NO live URL is present on a blocked deploy",
+      "pass": true
+    },
+    {
+      "name": "C: settlement tx on-chain",
+      "pass": true,
+      "detail": "0x94cda3fc2ce67d490c74163bea2c65ddf98d8207e814a5927625c1639e94b17d"
+    },
+    {
+      "name": "C: tx status success",
+      "pass": true,
+      "detail": "success"
+    },
+    {
+      "name": "C: tx target is USDC",
+      "pass": true,
+      "detail": "0x036cbd53842c5426634e7929541ec2318f3dcf7e"
+    },
+    {
+      "name": "C: USDC Transfer buyer->seller 0.01",
+      "pass": true
+    },
+    {
+      "name": "C: the block was recorded in Sibyl incident memory",
+      "pass": true,
+      "detail": "incident inc_235b426a7aca5ebe08ca87095ea7ffa3"
+    }
+  ]
+}

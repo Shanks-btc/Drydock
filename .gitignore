@@ -1,0 +1,7 @@
+node_modules/
+.env
+*.log
+
+# Deploy pipeline artifacts (runtime state)
+deploys/
+public_sites/

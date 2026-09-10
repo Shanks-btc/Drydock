@@ -1,0 +1,36 @@
+{
+  "results": [
+    {
+      "n": "warning is shown on the Build-ready card",
+      "p": true
+    },
+    {
+      "n": "warning text names index.html + built output",
+      "p": true
+    },
+    {
+      "n": "warning is dismissible",
+      "p": true
+    },
+    {
+      "n": "Continue to payment still works after the warning (not blocked)",
+      "p": true
+    },
+    {
+      "n": "no warning when a root index.html is present",
+      "p": true
+    },
+    {
+      "n": "warning shown for double-wrapped folder",
+      "p": true
+    },
+    {
+      "n": "warning names the nested index.html path",
+      "p": true
+    },
+    {
+      "n": "no uncaught page errors",
+      "p": true
+    }
+  ]
+}

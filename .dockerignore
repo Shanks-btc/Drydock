@@ -1,0 +1,18 @@
+# The backend image needs package*.json, requirements.txt and src/ only.
+# Everything below is either not needed at runtime or must never be baked in.
+node_modules
+web
+deploys
+public_sites
+.env
+.env.*
+*.log
+.git
+.gitignore
+docs
+scripts
+sample-site
+leaked-key-site
+_*.mjs
+Dockerfile
+.dockerignore

@@ -1,0 +1,55 @@
+{
+  "source": "5a855567-2512-4c49-a9b9-1add5b3d0675",
+  "newDeploy": "aa0e30d6-afc1-460d-9a12-d713f44d459d",
+  "txHash": "0x4049903fced3f22d5cc3a1f610e4351deabde55aa697dae318ca4ec5aaa37525",
+  "results": [
+    {
+      "n": "POST /deploy/:id/redeploy fired and returned 201",
+      "p": true
+    },
+    {
+      "n": "new deploy shown as a repeat of the source",
+      "p": true
+    },
+    {
+      "n": "payment settled for the repeat deploy (after retries if any)",
+      "p": true
+    },
+    {
+      "n": "repeat deploy reached the expected terminal state (blocked)",
+      "p": true
+    },
+    {
+      "n": "settlement tx shown",
+      "p": true
+    },
+    {
+      "n": "a new deploy record exists with redeployOf === source",
+      "p": true
+    },
+    {
+      "n": "new deploy carries a settlement txHash",
+      "p": true
+    },
+    {
+      "n": "new deploy state matches the source's verdict",
+      "p": true
+    },
+    {
+      "n": "tx on the page matches the tx on the record",
+      "p": true
+    },
+    {
+      "n": "settlement tx is on-chain",
+      "p": true
+    },
+    {
+      "n": "tx status success",
+      "p": true
+    },
+    {
+      "n": "USDC Transfer buyer -> seller 0.01",
+      "p": true
+    }
+  ]
+}

@@ -1,0 +1,5 @@
+# Python side of the Sibyl bridge (src/memory/sibyl_bridge.py).
+# sibyl-memory-client is Python-only — there is no Node SDK — so the backend
+# container needs Python + this package at runtime. Zero transitive deps
+# (pure stdlib + SQLite/FTS5), Requires-Python >=3.10.
+sibyl-memory-client==0.8.0

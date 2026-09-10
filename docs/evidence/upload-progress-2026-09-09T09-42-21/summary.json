@@ -1,0 +1,84 @@
+{
+  "site": {
+    "files": 148,
+    "mb": 8.5
+  },
+  "sampled": {
+    "order": [
+      "reading",
+      "compressing",
+      "ready"
+    ],
+    "ms": {
+      "reading": 1964,
+      "compressing": 1031,
+      "ready": 1959
+    }
+  },
+  "results": [
+    {
+      "n": "Reading state was shown (DOM)",
+      "p": true
+    },
+    {
+      "n": "Compressing state was shown (DOM)",
+      "p": true
+    },
+    {
+      "n": "Upload step ran (breadcrumb: POST /deploy → deploy created)",
+      "p": true
+    },
+    {
+      "n": "zip progress visible, not a flash (reading+compressing > 300ms)",
+      "p": true
+    },
+    {
+      "n": "flow order is pricing → picking → preparing → uploading → ready",
+      "p": true
+    },
+    {
+      "n": "ready card shows the real file count",
+      "p": true
+    },
+    {
+      "n": "ready card shows a MB size",
+      "p": true
+    },
+    {
+      "n": "stepper still on step 1 before Continue",
+      "p": true
+    },
+    {
+      "n": "stepper advanced to step 2 (Pay) after Continue",
+      "p": true
+    },
+    {
+      "n": "upload-failed card shows an error and a Retry",
+      "p": true
+    },
+    {
+      "n": "upload-failed keeps the file count (no re-zip needed)",
+      "p": true
+    },
+    {
+      "n": "dropzone is not frozen — a distinct failure card replaced it",
+      "p": true
+    },
+    {
+      "n": "Retry upload recovered to Build ready",
+      "p": true
+    },
+    {
+      "n": "zip error is shown inline on the dropzone",
+      "p": true
+    },
+    {
+      "n": "still on step 1, dropzone usable (not advanced, not frozen)",
+      "p": true
+    },
+    {
+      "n": "no uncaught page errors",
+      "p": true
+    }
+  ]
+}

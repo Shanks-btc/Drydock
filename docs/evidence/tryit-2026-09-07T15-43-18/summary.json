@@ -1,0 +1,159 @@
+{
+  "stamp": "2026-09-07T15-43-18",
+  "buyer": "0xaFD8730A20E57F1FEfD4b7BC680DB89bAA4d95A8",
+  "payTo": "0x4Aa7691dcFb903B377A7c2be69a7202fEF79E8AF",
+  "settlementTxs": [
+    {
+      "flow": "A (forced retry -> clean -> live)",
+      "tx": "0x2a9e249643949268397f472bec76b958265d0476618f002ea9b0727dcebe05e1"
+    },
+    {
+      "flow": "C (blocked -> halted)",
+      "tx": "0xc4ef2dcd22b7eecc4f1408d53a104aab4cbf9bd26ae9753cd962531f0ffac487"
+    }
+  ],
+  "timings": {
+    "A": {
+      "appeared": true,
+      "scanVisibleMs": 30307,
+      "stillScanningAt4_5s": true,
+      "midElapsedText": "4.8s elapsed",
+      "resultTiming": "memory check + poll: 30.5s on screen"
+    },
+    "C": {
+      "appeared": true,
+      "scanVisibleMs": 14367,
+      "stillScanningAt4_5s": true,
+      "midElapsedText": "4.5s elapsed",
+      "resultTiming": "memory check + poll: 14.2s on screen"
+    }
+  },
+  "results": [
+    {
+      "name": "A: facilitator soft-fail surfaced as a retry (not an error)",
+      "pass": true,
+      "detail": "1 retry(ies)"
+    },
+    {
+      "name": "A: payment settled, flow moved to the scan step",
+      "pass": true,
+      "detail": "scanning"
+    },
+    {
+      "name": "A: retry-state screenshot captured",
+      "pass": true
+    },
+    {
+      "name": "A: ScanPanel actually rendered (not skipped)",
+      "pass": true
+    },
+    {
+      "name": "A: scan step visible for a meaningful duration (>= 4s, not a flash)",
+      "pass": true,
+      "detail": "30.3s on screen"
+    },
+    {
+      "name": "A: scan still running at the 4.5s mark",
+      "pass": true,
+      "detail": "4.8s elapsed"
+    },
+    {
+      "name": "A: a real live URL is shown",
+      "pass": true,
+      "detail": "https://drydock-1ecdb52b.pages.dev"
+    },
+    {
+      "name": "A: live URL is a Cloudflare Pages URL",
+      "pass": true,
+      "detail": "https://drydock-1ecdb52b.pages.dev"
+    },
+    {
+      "name": "A: the live URL actually serves the deployed site",
+      "pass": true,
+      "detail": "HTTP 200"
+    },
+    {
+      "name": "A: a sub-asset (style.css) also serves from the live URL",
+      "pass": true,
+      "detail": "HTTP 200"
+    },
+    {
+      "name": "A: settlement tx on-chain",
+      "pass": true,
+      "detail": "0x2a9e249643949268397f472bec76b958265d0476618f002ea9b0727dcebe05e1"
+    },
+    {
+      "name": "A: tx status success",
+      "pass": true,
+      "detail": "success"
+    },
+    {
+      "name": "A: tx target is USDC",
+      "pass": true,
+      "detail": "0x036cbd53842c5426634e7929541ec2318f3dcf7e"
+    },
+    {
+      "name": "A: USDC Transfer buyer->seller 0.01",
+      "pass": true
+    },
+    {
+      "name": "C: payment settled, flow moved to the scan step",
+      "pass": true,
+      "detail": "scanning"
+    },
+    {
+      "name": "C: ScanPanel actually rendered (not skipped)",
+      "pass": true
+    },
+    {
+      "name": "C: scan step visible for a meaningful duration (>= 4s, not a flash)",
+      "pass": true,
+      "detail": "14.4s on screen"
+    },
+    {
+      "name": "C: scan still running at the 4.5s mark",
+      "pass": true,
+      "detail": "4.5s elapsed"
+    },
+    {
+      "name": "C: matched pattern shown as exposed-key-in-build-output",
+      "pass": true
+    },
+    {
+      "name": "C: a confidence score is shown",
+      "pass": true
+    },
+    {
+      "name": "C: a written rationale is shown",
+      "pass": true
+    },
+    {
+      "name": "C: NO live URL is present on a blocked deploy",
+      "pass": true
+    },
+    {
+      "name": "C: settlement tx on-chain",
+      "pass": true,
+      "detail": "0xc4ef2dcd22b7eecc4f1408d53a104aab4cbf9bd26ae9753cd962531f0ffac487"
+    },
+    {
+      "name": "C: tx status success",
+      "pass": true,
+      "detail": "success"
+    },
+    {
+      "name": "C: tx target is USDC",
+      "pass": true,
+      "detail": "0x036cbd53842c5426634e7929541ec2318f3dcf7e"
+    },
+    {
+      "name": "C: USDC Transfer buyer->seller 0.01",
+      "pass": true
+    },
+    {
+      "name": "C: the block was recorded in Sibyl incident memory",
+      "pass": true,
+      "detail": "incident inc_1d51c04c606132803f5aadb47670229d"
+    }
+  ]
+}

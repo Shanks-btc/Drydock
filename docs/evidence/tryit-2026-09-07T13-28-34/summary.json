@@ -1,0 +1,105 @@
+{
+  "stamp": "2026-09-07T13-28-34",
+  "buyer": "0xaFD8730A20E57F1FEfD4b7BC680DB89bAA4d95A8",
+  "payTo": "0x4Aa7691dcFb903B377A7c2be69a7202fEF79E8AF",
+  "settlementTxs": [
+    {
+      "flow": "A (forced retry -> clean -> live)",
+      "tx": "0x97459caa020d1349e1aefce49919c7f9d90f1f6bcc1ca8314fe30aca677ac7ba"
+    },
+    {
+      "flow": "C (blocked -> halted)",
+      "tx": "0xc04929a287e23b95a6562395f5e5d90d2dd292e86f0acd592f2f7a0a26107eef"
+    }
+  ],
+  "results": [
+    {
+      "name": "A: facilitator soft-fail surfaced as a retry (not an error)",
+      "pass": true,
+      "detail": "1 retry(ies)"
+    },
+    {
+      "name": "A: flow recovered to a terminal state after retry",
+      "pass": true,
+      "detail": "done"
+    },
+    {
+      "name": "A: retry-state screenshot captured",
+      "pass": true
+    },
+    {
+      "name": "A: a real live URL is shown",
+      "pass": true,
+      "detail": "http://localhost:3010/s/8856798b-bdc4-47aa-b4c4-7f003d2b9368/"
+    },
+    {
+      "name": "A: the live URL actually serves the deployed site",
+      "pass": true,
+      "detail": "HTTP 200"
+    },
+    {
+      "name": "A: settlement tx on-chain",
+      "pass": true,
+      "detail": "0x97459caa020d1349e1aefce49919c7f9d90f1f6bcc1ca8314fe30aca677ac7ba"
+    },
+    {
+      "name": "A: tx status success",
+      "pass": true,
+      "detail": "success"
+    },
+    {
+      "name": "A: tx target is USDC",
+      "pass": true,
+      "detail": "0x036cbd53842c5426634e7929541ec2318f3dcf7e"
+    },
+    {
+      "name": "A: USDC Transfer buyer->seller 0.01",
+      "pass": true
+    },
+    {
+      "name": "C: flow reached a terminal state",
+      "pass": true,
+      "detail": "done"
+    },
+    {
+      "name": "C: matched pattern shown as exposed-key-in-build-output",
+      "pass": true
+    },
+    {
+      "name": "C: a confidence score is shown",
+      "pass": true
+    },
+    {
+      "name": "C: a written rationale is shown",
+      "pass": true
+    },
+    {
+      "name": "C: NO live URL is present on a blocked deploy",
+      "pass": true
+    },
+    {
+      "name": "C: settlement tx on-chain",
+      "pass": true,
+      "detail": "0xc04929a287e23b95a6562395f5e5d90d2dd292e86f0acd592f2f7a0a26107eef"
+    },
+    {
+      "name": "C: tx status success",
+      "pass": true,
+      "detail": "success"
+    },
+    {
+      "name": "C: tx target is USDC",
+      "pass": true,
+      "detail": "0x036cbd53842c5426634e7929541ec2318f3dcf7e"
+    },
+    {
+      "name": "C: USDC Transfer buyer->seller 0.01",
+      "pass": true
+    },
+    {
+      "name": "C: the block was recorded in Sibyl incident memory",
+      "pass": true,
+      "detail": "incident inc_7abcc3689356ab15d0cf3b5ceb7c4814"
+    }
+  ]
+}

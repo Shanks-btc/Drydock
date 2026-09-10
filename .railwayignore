@@ -1,0 +1,13 @@
+node_modules
+**/node_modules
+web/.next
+deploys
+public_sites
+.env
+.env.*
+*.log
+.git
+sample-site
+leaked-key-site
+_*.mjs
+docs/evidence
