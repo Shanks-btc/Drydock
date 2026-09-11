@@ -1,13 +1,10 @@
 # Drydock
 
+Drydock is a deployment agent with memory. A build is uploaded, one gasless USDC payment settles on Base, and before the site publishes, Drydock checks the build against every past deployment incident it has stored, reasoning about the actual cause of a failure, not matching on keywords.
 
-Drydock is a deployment agent with memory. A build is uploaded, one gasless USDC payment settles on Base, and before the site publishes, Drydock checks the build against every past deployment incident it has stored — reasoning about the actual cause of a failure, not matching on keywords.
+I built Drydock around a simple question: what should a deploy pipeline actually remember? Not every build error is the same error wearing a different face, and not every surface-similar problem shares the same cause. A payment settling and a site going live are not proof that nothing was learned in between, the decision itself needs a record you can inspect
 
-I built Drydock around a simple question: what should a deploy pipeline actually remember? Not every build error is the same error wearing a different face, and not every surface-similar problem shares the same cause. A payment settling and a site going live are not proof that nothing was learned in between — the decision itself needs a record you can inspect.
-
-Try it live · Read the docs · See the dashboard · Run locally
-
-Project stage: hackathon build, deployed and operating on Base Sepolia (testnet). Payment settlement, on-chain ownership recording, and the memory-check gate are real and independently verifiable on Sepolia. Drydock does not perform Base mainnet writes in this build.
+Project stage: Deployed and operating on Base Sepolia (testnet). Payment settlement, on-chain ownership recording, and the memory-check gate are real and independently verifiable on Sepolia. Drydock does not perform Base mainnet writes in this build.
 
 ## Demo
 
@@ -211,11 +208,5 @@ docs/             architecture, deploy guide, demo script, build log
 - Prove a match and a non-match against the same surface signals before trusting either.
 - Verify real behavior against installed source, not documentation, before building on it.
 - Independently re-confirm every on-chain claim off a plain RPC call, not just the SDK's own response.
-
-## License
-
-MIT.
-
-## About
 
 A deployment agent with memory, built for the Sibyl Labs "Forgetting is a Bug" Memory Hackathon. Payment on Base, hosting on Cloudflare Pages, reasoning-driven memory on Sibyl.
