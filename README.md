@@ -1,18 +1,19 @@
 # Drydock
 
 
+Drydock is a deployment agent with memory. A build is uploaded, one gasless USDC payment settles on Base, and before the site publishes, Drydock checks the build against every past deployment incident it has stored — reasoning about the actual cause of a failure, not matching on keywords.
 
-Drydock is a deployment agent with memory. A build is uploaded, one gasless USDC payment settles on Base, and before the site publishes, Drydock checks the build against every past deployment incident it has stored, reasoning about the actual cause of a failure, not matching on keywords.
+I built Drydock around a simple question: what should a deploy pipeline actually remember? Not every build error is the same error wearing a different face, and not every surface-similar problem shares the same cause. A payment settling and a site going live are not proof that nothing was learned in between — the decision itself needs a record you can inspect.
 
-I built Drydock around a simple question: what should a deploy pipeline actually remember? Not every build error is the same error wearing a different face, and not every surface-similar problem shares the same cause. A payment settling and a site going live are not proof that nothing was learned in between, the decision itself needs a record you can inspect.
+Try it live · Read the docs · See the dashboard · Run locally
 
-Project stage:Deployed and operating on Base Sepolia (testnet). Payment settlement, on-chain ownership recording, and the memory-check gate are real and independently verifiable on Sepolia. Drydock does not perform Base mainnet writes in this build.
+Project stage: hackathon build, deployed and operating on Base Sepolia (testnet). Payment settlement, on-chain ownership recording, and the memory-check gate are real and independently verifiable on Sepolia. Drydock does not perform Base mainnet writes in this build.
 
 ## Demo
 
-Watch the walkthrough: _link here_
+Watch the walkthrough: https://www.youtube.com/watch?v=3uZz-0K8pCk
 
-Read the build-in-public thread: _link here_
+Read the build-in-public posts: https://x.com/Fastlanexbt/status/2098148118671892847?s=20 · https://x.com/Fastlanexbt/status/2098146456121041159?s=20
 
 ## Why Drydock
 
@@ -97,11 +98,11 @@ Drydock's memory is load-bearing, not decorative: it persists context that matte
 
 | Service | URL |
 |---|---|
-| Drydock web | _live frontend URL_ |
-| Drydock API health | _live backend URL_/health |
-| Try it | _live frontend URL_/try-it |
-| Dashboard | _live frontend URL_/dashboard |
-| Docs | _live frontend URL_/docs |
+| Drydock web | https://web-production-1909c.up.railway.app |
+| Drydock API health | https://backend-production-acb8.up.railway.app/health |
+| Try it | https://web-production-1909c.up.railway.app/try-it |
+| Dashboard | https://web-production-1909c.up.railway.app/dashboard |
+| Docs | https://web-production-1909c.up.railway.app/docs |
 
 ## Architecture
 
@@ -214,3 +215,7 @@ docs/             architecture, deploy guide, demo script, build log
 ## License
 
 MIT.
+
+## About
+
+A deployment agent with memory, built for the Sibyl Labs "Forgetting is a Bug" Memory Hackathon. Payment on Base, hosting on Cloudflare Pages, reasoning-driven memory on Sibyl.
