@@ -33,9 +33,9 @@ Uploading and paying are sequential but decoupled. Payment settlement and the me
 The flow: upload → pay → memory check → result.
 
 1. A build is uploaded (folder or `.zip`), zipped client-side.
-2. A flat 0.01 USDC fee settles gaslessly on Base via the x402 `exact` scheme — a real on-chain transaction, confirmed independently of the check that follows.
+2. A flat 0.01 USDC fee settles gaslessly on Base via the x402 `exact` scheme, a real on-chain transaction, confirmed independently of the check that follows.
 3. Drydock extracts real signals from the build and queries Sibyl Memory in two stages: a cheap prefilter shortlists candidate patterns, then a reasoning step compares the build's actual signals against each candidate's stored causal explanation.
-4. The build is published, halted, or flagged as resembling something not yet in memory — with the rationale shown either way.
+4. The build is published, halted, or flagged as resembling something not yet in memory, with the rationale shown either way.
 
 ## Try it without spending anything
 
