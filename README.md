@@ -28,7 +28,7 @@ Drydock makes a deploy easier to trust: a real payment, a real reasoning step, a
 
 ## How Drydock works
 
-Uploading and paying are sequential but decoupled. Payment settlement and the memory-check gate are two separable events — the settlement hook triggers the gate asynchronously rather than holding the payment response hostage to an ~8-15 second reasoning call.
+Uploading and paying are sequential but decoupled. Payment settlement and the memory-check gate are two separable events, the settlement hook triggers the gate asynchronously rather than holding the payment response hostage to an ~8-15 second reasoning call.
 
 The flow: upload → pay → memory check → result.
 
@@ -70,7 +70,7 @@ Bring your own wallet with a small amount of Base Sepolia test USDC (from `fauce
 
 - A clean build settles payment and clears the memory check, with no known pattern matched.
 - A build carrying a leaked credential in build output halts before publishing, citing the specific mechanism it matched — full rationale shown, not a bare rejection.
-- A build carrying a differently-shaped credential — committed directly into source rather than leaked at build time — is correctly **not** matched against the known leaked-key pattern, using the same stored distinction in reverse. Same suspicious keywords, opposite verdict, because the cause differs.
+- A build carrying a differently-shaped credential, committed directly into source rather than leaked at build time, is correctly **not** matched against the known leaked-key pattern, using the same stored distinction in reverse. Same suspicious keywords, opposite verdict, because the cause differs.
 - When a build resembles a genuinely new failure class, Drydock names it as an unlearned pattern rather than forcing a match either way.
 - A real container restart on the production deployment was used to deliberately test whether memory and retained deploy artifacts survive — they did; only the in-memory deploy list (expected to reset) did not.
 - The intermittent soft-fail behavior of the public x402 facilitator was reproduced deterministically with a fault-injecting proxy and confirmed recoverable via a retry, rather than assumed safe from the happy path alone.
@@ -83,9 +83,9 @@ Drydock's memory is load-bearing, not decorative: it persists context that matte
 
 **What is persisted.** Every confirmed incident is stored as a reasoned record, not a log line: the causal mechanism behind the failure, what evidence looks like it, a worked example, and an explicit statement of what the pattern is *not* — the negative anchor that does the real work of distinguishing similar-looking but different causes.
 
-**How a fresh session recalls it.** Every deploy is an independent process with no session carried over. The build's real signals are extracted fresh, a cheap prefilter shortlists candidate patterns from Sibyl's stored entities, and a reasoning step compares the new signals against each candidate's stored explanation — genuinely re-deriving the verdict each time, not reading a cached answer.
+**How a fresh session recalls it.** Every deploy is an independent process with no session carried over. The build's real signals are extracted fresh, a cheap prefilter shortlists candidate patterns from Sibyl's stored entities, and a reasoning step compares the new signals against each candidate's stored explanation, genuinely re-deriving the verdict each time, not reading a cached answer.
 
-**What changes because of it.** A build matching a known failure's real mechanism is halted before publishing, even though payment has already settled. A build that shares every surface signal of a known failure but not its actual cause is correctly let through — proven directly: a database credential committed into source code was **not** matched against a known build-time key-leak pattern, because Drydock's stored reasoning distinguishes "committed to source" from "generated at build time," and applied that same distinction, in reverse, to clear a case that shared every suspicious keyword. When a build resembles something genuinely outside what's stored, Drydock says so explicitly rather than guessing.
+**What changes because of it.** A build matching a known failure's real mechanism is halted before publishing, even though payment has already settled. A build that shares every surface signal of a known failure but not its actual cause is correctly let through, proven directly: a database credential committed into source code was **not** matched against a known build-time key-leak pattern, because Drydock's stored reasoning distinguishes "committed to source" from "generated at build time," and applied that same distinction, in reverse, to clear a case that shared every suspicious keyword. When a build resembles something genuinely outside what's stored, Drydock says so explicitly rather than guessing.
 
 **What breaks if memory is deleted.** Every one of the above becomes impossible. A fresh deploy would have nothing to compare against, so every build would look identical — no halt, no clearance based on cause, no honest "I don't know this one yet." The product would collapse to a deploy pipeline with no actual check running at all.
 
@@ -120,7 +120,7 @@ Drydock keeps payment, hosting, and memory as separate concerns so that one succ
 2. The settlement hook triggers the memory gate asynchronously; the payment response does not wait on it.
 3. Real signals are extracted from the uploaded build (`node_modules`/`.git` excluded, size-capped).
 4. A deterministic prefilter shortlists candidate patterns from Sibyl's WARM-tier entities.
-5. A reasoning step compares the build's signals against each shortlisted pattern's REFERENCE anchor — its mechanism, distinguishing evidence, and explicit negative anchors.
+5. A reasoning step compares the build's signals against each shortlisted pattern's REFERENCE anchor, its mechanism, distinguishing evidence, and explicit negative anchors.
 6. A match at or above the confidence threshold halts the deploy; no match clears it; a genuinely novel resemblance is filed as an unlearned candidate.
 7. The verdict, rationale, and any new-pattern candidate are recorded and surfaced on the public deploy record.
 
